@@ -12,3 +12,11 @@ docker run --rm \
 laravelsail/php81-composer:latest \
 composer install
 ```
+
+## Iniciar a stack
+
+Executar na raiz do projeto
+
+```bash
+sail up -d --build
+```

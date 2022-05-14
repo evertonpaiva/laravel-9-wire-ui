@@ -15,7 +15,13 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+
+        <!-- Livewire -->
         <livewire:styles />
+
+        <!-- Wire Ui -->
+        <wireui:scripts />
+        <script src="//unpkg.com/alpinejs" defer></script>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
