@@ -48,6 +48,26 @@ services:
             test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
             retries: 3
             timeout: 5s
+    phpmyadmin:
+        image: phpmyadmin
+        container_name: wireui-phpmyadmin
+        restart: unless-stopped
+        ports:
+            - '7001:80'
+        environment:
+            - PMA_HOST=mysql
+        networks:
+            - sail
+        depends_on:
+            -   mysql
+    mailhog:
+        image: mailhog/mailhog:latest
+        container_name: wireui-mailhog
+        restart: unless-stopped
+        ports:
+            - '${WEBMAIL_PORT:-7002}:8025'
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge
