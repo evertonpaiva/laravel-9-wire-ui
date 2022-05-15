@@ -12,6 +12,8 @@ class FormComponent extends Component
 
     public $modelMultiple = [];
 
+    public $currency = null;
+
     public function render()
     {
         return view('livewire.form-component');
