@@ -25,6 +25,10 @@
 
                         <x-input label="Name" placeholder="your name" hint="Inform your full name" />
 
+                        <div>
+                            <label>Usuário:</label>{{ $model }}
+                        </div>
+
                         <x-select
                             label="Search a User"
                             wire:model="model"
