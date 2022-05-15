@@ -1,7 +1,5 @@
-require('./bootstrap');
-
-import Alpine from 'alpinejs';
-
-window.Alpine = Alpine;
-
-Alpine.start();
+import './bootstrap'
+import './features/dark-mode'
+import './features/preloader'
+import './features/href-anchor'
+import './features/clipboard'

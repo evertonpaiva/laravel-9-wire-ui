@@ -1,51 +1,42 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ session('dark', false) ? 'dark' : '' }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <title>{{ $title ?? config('app.name', 'WireUI') }}</title>
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+    <!-- Styles -->
+    <livewire:styles />
+    <link rel="stylesheet" href="{{ mix('dist/app.css') }}">
 
-        <!-- Livewire -->
-        <livewire:styles />
+    <!-- Scripts -->
+    <wireui:scripts />
+    <script src="{{ mix('dist/alpine.js') }}" defer></script>
 
-        <!-- Wire Ui -->
-        <wireui:scripts />
-        <script src="//unpkg.com/alpinejs" defer></script>
-    </head>
-    <body class="font-sans antialiased">
-        <x-jet-banner />
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+    @stack('styles')
+</head>
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+<body class="font-sans overflow-y-scroll min-h-screen bg-slate-100 dark:bg-secondary-800">
+<x-notifications />
+<x-dialog />
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
+{{ $slot }}
 
-        @stack('modals')
-
-        <livewire:scripts />
-    </body>
+<!-- Scripts -->
+<livewire:scripts />
+<script src="{{ mix('dist/app.js') }}"></script>
+@stack('scripts')
+</body>
 </html>

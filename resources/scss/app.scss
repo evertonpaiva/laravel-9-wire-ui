@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./torchlight.scss";
+@import "./animations.scss";
+
+@layer utilities {
+    .soft-scrollbar-width-2::-webkit-scrollbar {
+        width: 7px !important;
+        height: 7px !important;
+        cursor: pointer;
+    }
+}

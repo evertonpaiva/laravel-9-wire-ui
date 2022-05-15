@@ -3,21 +3,30 @@
     "scripts": {
         "dev": "npm run development",
         "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "lint": "eslint . --ext .js",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000"
     },
     "devDependencies": {
-        "@tailwindcss/forms": "^0.4.0",
-        "@tailwindcss/typography": "^0.5.0",
-        "alpinejs": "^3.0.6",
-        "axios": "^0.25",
-        "laravel-mix": "^6.0.6",
+        "@tailwindcss/aspect-ratio": "^0.4.0",
+        "@tailwindcss/forms": "^0.5.1",
+        "@tailwindcss/typography": "^0.5.2",
+        "autoprefixer": "^10.4.7",
+        "axios": "^0.27.2",
+        "eslint": "^8.9.0",
+        "eslint-plugin-import": "^2.25.4",
+        "laravel-mix": "^6.0.42",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14",
-        "postcss-import": "^14.0.1",
-        "tailwindcss": "^3.0.0"
+        "postcss": "^8.4.13",
+        "sass": "^1.51.0",
+        "sass-loader": "^12.6.0",
+        "tailwindcss": "^3.0.22"
+    },
+    "dependencies": {
+        "alpinejs": "^3.9.0",
+        "clipboard": "^2.0.8"
     }
 }
