@@ -8,4 +8,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/users', Users\Index::class)->name('users.index');
+Route::get('/users', Users\Index::class)->name('api.users.index');

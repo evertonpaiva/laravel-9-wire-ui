@@ -29,10 +29,60 @@
                             label="Search a User"
                             wire:model="model"
                             placeholder="Select some user"
-                            :async-data="route('users.index')"
+                            :async-data="route('api.users.index')"
                             option-label="name"
                             option-value="id"
                         />
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:max-w-lg">
+                            <x-select
+                                label="Select Relator"
+                                placeholder="Select relator"
+                                wire:model.defer="model"
+                            >
+                                <x-select.user-option src="https://via.placeholder.com/500" label="People 1" value="1" />
+                                <x-select.user-option src="https://via.placeholder.com/500" label="People 2" value="2" />
+                                <x-select.user-option src="https://via.placeholder.com/500" label="People 3" value="3" />
+                                <x-select.user-option src="https://via.placeholder.com/500" label="People 4" value="4" />
+                            </x-select>
+
+                            <x-select
+                                label="Search a User"
+                                wire:model.defer="asyncSearchUser"
+                                placeholder="Select some user"
+                                :async-data="route('api.users.index')"
+                                :template="[
+                                    'name'   => 'user-option',
+                                    'config' => ['src' => 'profile_image']
+                                ]"
+                                option-label="name"
+                                option-value="id"
+                                option-description="email"
+                            />
+                        </div>
+
+                        <x-card>
+                            // code
+                        </x-card>
+
+                        <x-inputs.maskable
+                            label="Maskable Input"
+                            mask="(###) ###-####"
+                            placeholder="Phone number"
+                        />
+
+                        <x-inputs.currency
+                            label="Currency"
+                            placeholder="Currency"
+                            icon="currency-dollar"
+                            thousands="."
+                            decimal=","
+                            precision="4"
+                            wire:model="currency"
+                        />
+                        <x-inputs.currency label="Currency no Decimals" precision="0" wire:model="currency" />
+                        <x-inputs.currency label="Currency" wire:model="currency" />
+                        <x-inputs.currency label="Currency" prefix="R$" thousands="." decimal="," wire:model="currency" />
 
                     </div>
 
