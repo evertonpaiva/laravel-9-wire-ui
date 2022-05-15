@@ -20,3 +20,11 @@ Executar na raiz do projeto
 ```bash
 sail up -d --build
 ```
+
+## Banco de dados
+
+Executar migrations e seeds:
+
+```bash
+php artisan migrate:refresh --seed
+```
