@@ -10,6 +10,8 @@ class FormComponent extends Component
 
     public $model = null;
 
+    public $user_id = null;
+
     public $modelMultiple = [];
 
     public $currency = null;

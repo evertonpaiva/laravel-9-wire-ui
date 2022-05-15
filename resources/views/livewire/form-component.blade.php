@@ -26,12 +26,12 @@
                         <x-input label="Name" placeholder="your name" hint="Inform your full name" />
 
                         <div>
-                            <label>Usuário:</label>{{ $model }}
+                            <label>Usuário:</label>|{{ $user_id }}|
                         </div>
 
                         <x-select
                             label="Search a User"
-                            wire:model="model"
+                            wire:model="user_id"
                             placeholder="Select some user"
                             :async-data="route('api.users.index')"
                             option-label="name"
@@ -52,7 +52,7 @@
 
                             <x-select
                                 label="Search a User"
-                                wire:model.defer="asyncSearchUser"
+                                wire:model="user_id"
                                 placeholder="Select some user"
                                 :async-data="route('api.users.index')"
                                 :template="[
